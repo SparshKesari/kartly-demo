@@ -1,0 +1,5 @@
+e2e
+test-results
+playwright-report
+data/db.json
+*.tsbuildinfo

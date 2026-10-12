@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-slate-100 text-slate-900 antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-[40px] items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand-yellow text-slate-900 hover:bg-brand-yellowHover disabled:hover:bg-brand-yellow;
+  }
+  .btn-secondary {
+    @apply btn bg-amber-500 text-slate-900 hover:bg-amber-600 disabled:hover:bg-amber-500;
+  }
+  .btn-outline {
+    @apply btn border border-slate-300 bg-white text-slate-800 hover:bg-slate-50;
+  }
+  .btn-link {
+    @apply inline-flex min-h-[40px] min-w-[40px] items-center justify-center text-sm text-brand-link hover:text-orange-700 hover:underline disabled:opacity-50;
+  }
+  .card {
+    @apply rounded-lg bg-white shadow-sm;
+  }
+  .input {
+    @apply block min-h-[40px] w-full rounded-md border border-slate-400 bg-white px-3 py-2 text-sm shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300;
+  }
+  .label {
+    @apply mb-1 block text-sm font-semibold text-slate-800;
+  }
+  .field-error {
+    @apply mt-1 text-xs text-red-700;
+  }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* 40x40 tap target for checkboxes and radios, drawn as an 20px control. */
+.tap-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin: -12px -6px -12px -10px;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+  cursor: pointer;
+}
+.tap-input[type="checkbox"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='1.5' y='1.5' width='17' height='17' rx='3' fill='white' stroke='%2364748b' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+.tap-input[type="checkbox"]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='1' y='1' width='18' height='18' rx='3' fill='%23d97706'/%3E%3Cpath d='M5 10.5l3.2 3.2L15 7' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.tap-input[type="radio"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='white' stroke='%2364748b' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+.tap-input[type="radio"]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8.25' fill='white' stroke='%23d97706' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='10' r='4.5' fill='%23d97706'/%3E%3C/svg%3E");
+}
+.tap-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.tap-input:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: -6px;
+}
